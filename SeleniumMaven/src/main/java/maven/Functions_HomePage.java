@@ -77,7 +77,8 @@ public class Functions_HomePage {
 
 				Testcase1.log(Status.INFO, "Vertical Scroll View - "+IsVerticalScrollAvailable);
 				Testcase1.log(Status.INFO,"Horizontal Scroll View - "+IsHorizontalScrollAvailable);
-				Testcase1.log(Status.FAIL, "Vertical and Horizontal Scroll Views is not enable for home page");	
+				Testcase1.log(Status.FAIL, "Vertical and Horizontal Scroll Views is not enable for home page");
+				
 			}
 
 			else if((IsVerticalScrollAvailable==true)&&(IsHorizontalScrollAvailable==false)) {
