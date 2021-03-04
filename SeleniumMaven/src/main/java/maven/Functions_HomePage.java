@@ -31,7 +31,7 @@ public class Functions_HomePage {
 	static String ExpectedString;
 	static ExtentReports extentReports;
 	static ExtentHtmlReporter extenthtmlreporter;
-	static ExtentTest ParentTestcase,ChildTestcase,ChildTestcase2;
+	static ExtentTest Testcase1,Testcase2,ChildTestcase;
 	static String Text;
 	static JavascriptExecutor javascript;
 
@@ -44,6 +44,7 @@ public class Functions_HomePage {
 		extentReports=new ExtentReports();
 		extenthtmlreporter=new ExtentHtmlReporter("HomePageFunctionReport.html");
 		extentReports.attachReporter(extenthtmlreporter);
+		
 
 	}
 
@@ -52,7 +53,8 @@ public class Functions_HomePage {
 	public static void VerifyScrollView() {
 //		Initiating Test case's name in extent reports
 		
-		ChildTestcase=ParentTestcase.createNode("Verify whether scroll view is enable or not");
+		Testcase1=extentReports.createTest("Verify whether scroll view is enable or not");
+//		ChildTestcase=Testcase1.createNode("Verify whether scroll view is enable or not");
 		
 		javascript = (JavascriptExecutor) driver;
 		//Check If horizontal scroll Is present or not.
@@ -60,36 +62,36 @@ public class Functions_HomePage {
 		// Check If vertical scroll Is present or not
 		Boolean IsVerticalScrollAvailable = (Boolean) javascript.executeScript("return document.documentElement.scrollHeight>document.documentElement.clientHeight;");
 
-		ChildTestcase.log(Status.INFO, "Verify the Horizontal and Vertical Scroll view");
+//		ChildTestcase.log(Status.INFO, "Verify the Horizontal and Vertical Scroll view");
 		
 		if(IsVerticalScrollAvailable&&IsHorizontalScrollAvailable) {
 			
-			ChildTestcase.log(Status.INFO, "Vertical Scroll View - "+IsVerticalScrollAvailable);
-			ChildTestcase.log(Status.INFO,"Horizontal Scroll View - "+IsHorizontalScrollAvailable);
-			ChildTestcase.log(Status.PASS, "Vertical and Horizontal Scroll Views is enable for home page");
+			Testcase1.log(Status.INFO, "Vertical Scroll View - "+IsVerticalScrollAvailable);
+			Testcase1.log(Status.INFO,"Horizontal Scroll View - "+IsHorizontalScrollAvailable);
+			Testcase1.log(Status.PASS, "Vertical and Horizontal Scroll Views is enable for home page");
 			
 		}
 		else {
 			
 			if((IsVerticalScrollAvailable==false)&&(IsHorizontalScrollAvailable==false)) {
 
-				ChildTestcase.log(Status.INFO, "Vertical Scroll View - "+IsVerticalScrollAvailable);
-				ChildTestcase.log(Status.INFO,"Horizontal Scroll View - "+IsHorizontalScrollAvailable);
-				ChildTestcase.log(Status.FAIL, "Vertical and Horizontal Scroll Views is not enable for home page");	
+				Testcase1.log(Status.INFO, "Vertical Scroll View - "+IsVerticalScrollAvailable);
+				Testcase1.log(Status.INFO,"Horizontal Scroll View - "+IsHorizontalScrollAvailable);
+				Testcase1.log(Status.FAIL, "Vertical and Horizontal Scroll Views is not enable for home page");	
 			}
 
 			else if((IsVerticalScrollAvailable==true)&&(IsHorizontalScrollAvailable==false)) {
 				
-				ChildTestcase.log(Status.INFO, "Vertical Scroll View - "+IsVerticalScrollAvailable);
-				ChildTestcase.log(Status.INFO,"Horizontal Scroll View - "+IsHorizontalScrollAvailable);
-				ChildTestcase.log(Status.FAIL, "Vertical Scroll View is enable & Horizontal Scroll View is not enable");	
+				Testcase1.log(Status.INFO, "Vertical Scroll View - "+IsVerticalScrollAvailable);
+				Testcase1.log(Status.INFO,"Horizontal Scroll View - "+IsHorizontalScrollAvailable);
+				Testcase1.log(Status.FAIL, "Vertical Scroll View is enable But Horizontal Scroll View is not enable");	
 			}
 			
 			else if((IsVerticalScrollAvailable==false)&&(IsHorizontalScrollAvailable==true)) {
 
-				ChildTestcase.log(Status.INFO, "Vertical Scroll View - "+IsVerticalScrollAvailable);
-				ChildTestcase.log(Status.INFO,"Horizontal Scroll View - "+IsHorizontalScrollAvailable);
-				ChildTestcase.log(Status.FAIL, "Vertical Scroll View is not enable & Horizontal Scroll View is enable");	
+				Testcase1.log(Status.INFO, "Vertical Scroll View - "+IsVerticalScrollAvailable);
+				Testcase1.log(Status.INFO,"Horizontal Scroll View - "+IsHorizontalScrollAvailable);
+				Testcase1.log(Status.FAIL, "Vertical Scroll View is not enable But Horizontal Scroll View is enable");	
 			}
 		}
 		
@@ -110,7 +112,6 @@ public class Functions_HomePage {
 		Text=sc.nextLine();
 		sc.close();
 
-		ChildTestcase2=ParentTestcase.createNode("Verify searched result match");
 		
 		HomePage.SearchField.sendKeys(Text);
 		HomePage.SearchIcon.click();
@@ -118,11 +119,11 @@ public class Functions_HomePage {
 		ExpectedString="\""+Text+"\"";
 		Assert.assertEquals(AutoCorrectedResult, ExpectedString);
 		//Creating Test case in report
-		ChildTestcase2=extentReports.createTest("Verifying the searched text is matched with generated result's text or not");
-		ChildTestcase2.log(Status.INFO, "Expected Result : "+ExpectedString +"</br>" + "Actual Result : "+AutoCorrectedResult);
+		Testcase2=extentReports.createTest("Verifying the searched text is matched with generated result's text or not");
+		Testcase2.log(Status.INFO, "Expected Result : "+ExpectedString +"</br>" + "Actual Result : "+AutoCorrectedResult);
 
 		if(AutoCorrectedResult.equalsIgnoreCase(ExpectedString)) {
-			ChildTestcase2.log(Status.PASS,MarkupHelper.createLabel("Searched text's element is matched with generated result's text..", ExtentColor.GREEN) );
+			Testcase2.log(Status.PASS,MarkupHelper.createLabel("Searched text's element is matched with generated result's text..", ExtentColor.GREEN) );
 		}
 
 	}
