@@ -75,4 +75,5 @@ public class POMFile_SearchFeature {
 	
 	@FindBy(xpath="(//label[contains(text(),\"Color:\")]/following-sibling::span[@class=\"selection\"])[1]")
 	public static WebElement ProductColorInDetailedView;
+	
 }

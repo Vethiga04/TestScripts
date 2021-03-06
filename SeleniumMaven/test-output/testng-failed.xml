@@ -3,14 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="maven.Functions_HomePage">
+      <class name="maven.Functions_AddToCart">
         <methods>
-          <include name="OpenBrowser"/>
-          <include name="VerifyScrollView"/>
+          <include name="VerifyProductNavigation"/>
           <include name="CloseBrowser"/>
-          <include name="VerifySearchElementMatch"/>
+          <include name="OpenWebBrowser"/>
         </methods>
-      </class> <!-- maven.Functions_HomePage -->
+      </class> <!-- maven.Functions_AddToCart -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
