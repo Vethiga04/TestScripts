@@ -111,9 +111,6 @@ public class SearchFeature_Amazon {
 			driver.switchTo().window(tab.get(1));
 			driver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
 
-//			IsNameDisplay = POMFile_SearchFeature.ProductDetailedNameInDetailedView.isDisplayed();
-//			IsPriceDisplay = POMFile_SearchFeature.ProductPriceInDetailedView.isDisplayed();
-//			IsColorDisplay = POMFile_SearchFeature.ProductColorInDetailedView.isDisplayed();
 
 			if (POMFile_SearchFeature.ProductDetailedNameInDetailedView.isDisplayed() == true) {
 				try {

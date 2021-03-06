@@ -3,9 +3,7 @@ package com.web.pom;
 import java.util.List;
 
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
 
 /**
 * @author Vethiga
@@ -75,4 +73,5 @@ public class POMFile_SearchFeature {
 	
 	@FindBy(xpath="(//label[contains(text(),\"Color:\")]/following-sibling::span[@class=\"selection\"])[1]")
 	public static WebElement ProductColorInDetailedView;
+	
 }
