@@ -88,7 +88,7 @@ public class Functions_AddToCart {
 					&& CPUManufacturerName.equals(AddToCart.CPUManufacturerName.getText()) && ScreenSize.equals(AddToCart.ScreenSize.getText())
 					&& ComputerMemorySize.equals(AddToCart.ComputerMemorySize.getText())) {
 
-				TestCase1.log(Status.INFO, "<h4 style=\"background-color:DodgerBlue;\">User's input</h4>" + "</br> Brand Name: "+BrandName+"</br> OS Name: "+OSName+"</br> CPU Manufacturer Name: "
+				TestCase1.log(Status.INFO, "<span style=\"color:blue;font-weight:bold\">User's input</span>" + "</br> Brand Name: "+BrandName+"</br> OS Name: "+OSName+"</br> CPU Manufacturer Name: "
 						+CPUManufacturerName+"</br> Screen Size: "+ScreenSize+"</br> Computer Memory Size: "+ComputerMemorySize);
 				
 				TestCase1.log(Status.PASS, "Product's details are matched with user's input");
