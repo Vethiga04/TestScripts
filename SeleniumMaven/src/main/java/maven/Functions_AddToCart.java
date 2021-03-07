@@ -32,6 +32,7 @@ public class Functions_AddToCart {
 	static ExtentReports extentreports;
 	static ExtentHtmlReporter extentHtmlreporter;
 	static ExtentTest TestCase1,TestCase2;
+	static boolean IsProceed;
 
 	@BeforeSuite
 	public static void OpenWebBrowser() {
@@ -55,22 +56,18 @@ public class Functions_AddToCart {
 
 		TestCase1=extentreports.createTest("Verify whether customer searched product(from user's input) is listed in product's page or not");
 
-		System.out.print("Type Brand Name: ");
+		String[] ProductDetails=new String[5];
+		String[] DetailTitle= {"Type Brand Name: ","Type OS Name: ","Type CPU Manufacturer Name: ","Type Screen Size: ","Type Computer Memory Size: "};
+
 		Scanner scanner=new Scanner(System.in);
-		String BrandName=scanner.nextLine();
-
-		System.out.print("Type OS Name: ");
-		String OSName=scanner.nextLine();
-
-		System.out.print("Type CPU Manufacturer Name: ");
-		String CPUManufacturerName=scanner.nextLine();
-
-		System.out.print("Type Screen Size: ");
-		String ScreenSize=scanner.nextLine();
-
-		System.out.print("Type Computer Memory Size: ");
-		String ComputerMemorySize=scanner.nextLine();
-
+		int j = 0;
+		for(int i=0;i<5;i++) {
+			System.out.print(DetailTitle[j]);
+			ProductDetails[i]= scanner.nextLine();
+			j++;
+		}
+		
+		
 		scanner.close();
 
 		for (WebElement Product : AddToCart.ProductsLink) {
@@ -83,13 +80,20 @@ public class Functions_AddToCart {
 			driver.switchTo().window(tab.get(1));
 			driver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
 
+			String[] DetailsTitleInPage= {AddToCart.BrandName.getText(),AddToCart.OSName.getText(),AddToCart.CPUManufacturerName.getText(),
+					AddToCart.ScreenSize.getText(),AddToCart.ComputerMemorySize.getText()};
+			int a=0;
+			for(int h=0;h<5;h++) {
+				if((ProductDetails[h].equalsIgnoreCase(DetailsTitleInPage[a]))){
+					IsProceed=true;
+				}
+			a++;
+			}
 
-			if(BrandName.equals(AddToCart.BrandName.getText()) && OSName.equals(AddToCart.OSName.getText()) 
-					&& CPUManufacturerName.equals(AddToCart.CPUManufacturerName.getText()) && ScreenSize.equals(AddToCart.ScreenSize.getText())
-					&& ComputerMemorySize.equals(AddToCart.ComputerMemorySize.getText())) {
+			if(IsProceed) {
 
-				TestCase1.log(Status.INFO, "<span style=\"color:blue;font-weight:bold\">User's input</span>" + "</br> Brand Name: "+BrandName+"</br> OS Name: "+OSName+"</br> CPU Manufacturer Name: "
-						+CPUManufacturerName+"</br> Screen Size: "+ScreenSize+"</br> Computer Memory Size: "+ComputerMemorySize);
+				TestCase1.log(Status.INFO, "<span style=\"color:blue;font-weight:bold\">User's input</span>" + "</br> Brand Name: "+ProductDetails[0]+"</br> OS Name: "+ProductDetails[1]+"</br> CPU Manufacturer Name: "
+						+ProductDetails[2]+"</br> Screen Size: "+ProductDetails[3]+"</br> Computer Memory Size: "+ProductDetails[4]);
 				
 				TestCase1.log(Status.PASS, "Product's details are matched with user's input");
 				System.out.println("Yayyy!!! Product got found now");

@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-03-07T00:06:51 IST" name="Default suite" finished-at="2021-03-07T00:14:39 IST" duration-ms="467933">
+  <suite started-at="2021-03-07T16:41:12 IST" name="Default suite" finished-at="2021-03-07T16:44:21 IST" duration-ms="188885">
     <groups>
     </groups>
-    <test started-at="2021-03-07T00:06:51 IST" name="Default test" finished-at="2021-03-07T00:14:39 IST" duration-ms="467933">
+    <test started-at="2021-03-07T16:41:12 IST" name="Default test" finished-at="2021-03-07T16:44:21 IST" duration-ms="188885">
       <class name="maven.Functions_AddToCart">
-        <test-method is-config="true" signature="OpenWebBrowser()[pri:0, instance:maven.Functions_AddToCart@1d8bd0de]" started-at="2021-03-07T00:06:30 IST" name="OpenWebBrowser" finished-at="2021-03-07T00:06:51 IST" duration-ms="20982" status="PASS">
+        <test-method is-config="true" signature="OpenWebBrowser()[pri:0, instance:maven.Functions_AddToCart@1d8bd0de]" started-at="2021-03-07T16:40:27 IST" name="OpenWebBrowser" finished-at="2021-03-07T16:41:12 IST" duration-ms="44691" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- OpenWebBrowser -->
-        <test-method signature="VerifyProductNavigation()[pri:0, instance:maven.Functions_AddToCart@1d8bd0de]" started-at="2021-03-07T00:06:51 IST" name="VerifyProductNavigation" finished-at="2021-03-07T00:14:39 IST" duration-ms="467899" status="PASS">
+        <test-method signature="VerifyProductNavigation()[pri:0, instance:maven.Functions_AddToCart@1d8bd0de]" started-at="2021-03-07T16:41:12 IST" name="VerifyProductNavigation" finished-at="2021-03-07T16:44:21 IST" duration-ms="188833" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- VerifyProductNavigation -->
-        <test-method is-config="true" signature="CloseBrowser()[pri:0, instance:maven.Functions_AddToCart@1d8bd0de]" started-at="2021-03-07T00:14:40 IST" name="CloseBrowser" finished-at="2021-03-07T00:14:42 IST" duration-ms="1929" status="PASS">
+        <test-method is-config="true" signature="CloseBrowser()[pri:0, instance:maven.Functions_AddToCart@1d8bd0de]" started-at="2021-03-07T16:44:21 IST" name="CloseBrowser" finished-at="2021-03-07T16:44:23 IST" duration-ms="1724" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CloseBrowser -->
