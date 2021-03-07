@@ -87,6 +87,9 @@ public class Functions_AddToCart {
 				if((ProductDetails[h].equalsIgnoreCase(DetailsTitleInPage[a]))){
 					IsProceed=true;
 				}
+				else {
+					IsProceed=false;
+				}
 			a++;
 			}
 
@@ -124,7 +127,8 @@ public class Functions_AddToCart {
 				break;
 
 			}
-			else {
+			
+			else if(!(IsProceed)) {
 				System.out.println("Sorry... Product is not found");
 			}
 
