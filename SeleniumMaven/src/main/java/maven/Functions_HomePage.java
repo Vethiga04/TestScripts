@@ -128,6 +128,10 @@ public class Functions_HomePage {
 
 	}
 
+	
+	public void test() {
+		System.out.println("adding new page elements");
+	}
 
 	
 	@AfterSuite
